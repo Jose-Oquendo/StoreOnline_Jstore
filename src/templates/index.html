@@ -1,0 +1,41 @@
+{% load static %}
+{% load bootstrap4 %}
+{% bootstrap_css %}
+{% bootstrap_javascript jquery='full' %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>J-Store</title>
+</head>
+<body>
+    <h1>{{message}}</h1>
+    <table>
+        <tr>
+        {% for products in products %}
+            <td>
+                <ul class="list-group">
+                    <li class="list-group-item">
+                        {{ products.title }}
+                    </li>
+                    <li class="list-group-item">
+                        {{products.price}}
+                    </li>
+                    <li class="list-group-item">
+                    {% if product.stock %}
+                        <span class="text-danger">Disponible</span>
+                    {% else %}
+                        <span class="text-danger">Disponible</span>
+                    {% endif %}
+                    </li>
+                </ul>
+            </td>
+        {% endfor %}
+        </tr>
+    </table>
+    <script src="{% static 'js/main.js' %}"></script>
+</body>
+</html>
