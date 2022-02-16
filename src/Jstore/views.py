@@ -1,5 +1,7 @@
+from django.contrib.auth import authenticate, login
+from django.contrib import messages
 from django.http import HttpResponse
-from django.shortcuts import render
+from django.shortcuts import redirect, render
 
 def index(request):
     context={
@@ -13,5 +15,15 @@ def index(request):
     }
     return render(request, 'index.html', context)
 
-def login(request):
-    return render(request, 'user/login.html')
+def login_view(request):
+    if request.method == 'POST':
+        username = request.POST.get('username')
+        password = request.POST.get('password')
+        user = authenticate(username = username, password = password)
+        if user:
+            login(request, user)
+            messages.success(request, 'Bienvenido {}'.format)
+            return redirect('index') #se redirecciona al name en las urls
+        else:
+            messages.error(request, 'Usuario o contraseña No validos')
+    return render(request, 'users/login.html')

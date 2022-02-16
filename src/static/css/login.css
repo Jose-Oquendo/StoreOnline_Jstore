@@ -1,0 +1,21 @@
+body{
+    background-image: url("static/img/fondos/paper_texture.jpg");
+    font-family: Arial;
+    font-size: 12px;
+}
+
+#alert{
+    background-color: rgba(114, 114, 114, 0.377);
+}
+
+.col{
+    display: inline-block;
+    margin-top: 10%;
+    padding: 3%;
+    background-color: rgba(114, 114, 114, 0.178);
+    width: 5%;
+}
+
+.col form div input{
+    width: 50%;
+}
