@@ -1,4 +1,5 @@
-from django.contrib.auth import authenticate, login
+from sre_constants import SUCCESS
+from django.contrib.auth import authenticate, login, logout
 from django.contrib import messages
 from django.http import HttpResponse
 from django.shortcuts import redirect, render
@@ -6,11 +7,11 @@ from django.shortcuts import redirect, render
 def index(request):
     context={
         'title' : 'index',
-        'message' : 'Nuevo mensaje desde la vista',
+        'message' : 'Prodctos de nuestra tienda',
         'products' : [
-            {'title':'Playera', 'price':20000, 'stock':True, 'img': "static/img/playera.jpg"},
-            {'title':'Blusa', 'price':16000, 'stock':True, 'img': "static/img/blusa.jpg"},
-            {'title':'Mochila', 'price':30000, 'stock':True, 'img': "static/img/bolso.jpg"},
+            {'title':'Playera', 'price':20000, 'stock':True, 'img': "../static/img/playera.jpg"},
+            {'title':'Blusa', 'price':16000, 'stock':True, 'img': "../static/img/blusa.jpg"},
+            {'title':'Mochila', 'price':30000, 'stock':True, 'img': "../static/img/bolso.jpg"},
         ]
     }
     return render(request, 'index.html', context)
@@ -22,8 +23,13 @@ def login_view(request):
         user = authenticate(username = username, password = password)
         if user:
             login(request, user)
-            messages.success(request, 'Bienvenido {}'.format)
+            messages.success(request, 'Bienvenido {}'.format(user.username))
             return redirect('index') #se redirecciona al name en las urls
         else:
             messages.error(request, 'Usuario o contraseña No validos')
     return render(request, 'users/login.html')
+
+def logout_view(request):    
+    logout(request)
+    messages.success(request, 'Sesion cerrada correctamente' )
+    return redirect('login')

@@ -13,33 +13,59 @@
     <title>J-Store</title>
 </head>
 <body>
-    <h1>{{message}}</h1>
-    <table>
-        <tr>
-        {% for products in products %}
-            <td>
-                <ul class="list-group">
-                    <li class="list-group-item">
-                        {{ products.title }}
-                    </li>
-                    <li class="list-group-item">
-                        {{products.price}}
-                    </li>
-                    <li class="list-group-item">
-                    {% if product.stock %}
-                        <span class="text-danger">Disponible</span>
-                    {% else %}
-                        <span class="text-danger">Disponible</span>
-                    {% endif %}
-                    </li>
-                    <li class="list-group-item">
-                        <img class="Fotos" src="{{products.img}}" alt="Foto del producto">
-                    </li>
-                </ul>
-            </td>
-        {% endfor %}
-        </tr>
-    </table>
+    <div class="bienvenida">
+        {% if messages %}
+            {% for messages in messages %}
+                <div class="alert {% if messages.tags == 'success' %} alert-success {% else %} alert-danger {% endif %}" id="alert">
+                    <button type="button" class="close" data-dismiss="alert"> X </button>
+                    {{messages}}
+                </div>
+            {% endfor %}
+        {% endif %}
+    </div>
+    <head>
+        <nav>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">boton1</a></li>
+            <li><a href="#">Boton2</a></li>
+        </nav>
+        <div class="usuario">
+            
+        </div>
+    </head>
+    <main class="container">
+        <div class="row">
+            <div class="col">
+                <h1>{{message}}</h1>
+                <table>
+                <tr class="productos">
+                    {% for products in products %}
+                        <td>
+                            <ul class="list-group">
+                                <li class="list-group-item">
+                                    {{ products.title }}
+                                </li>
+                                <li class="list-group-item">
+                                    {{products.price}}
+                                </li>
+                                <li class="list-group-item">
+                                {% if products.stock %}
+                                    <span class="text-danger">Disponible</span>
+                                {% else %}
+                                    <span class="text-danger">Disponible</span>
+                                {% endif %}
+                                </li>
+                                <li class="list-group-item" id="img_producto">
+                                    <img class="fotos" src="{{products.img}}" alt="Foto del producto" width="500">
+                                </li>
+                            </ul>
+                        </td>
+                    {% endfor %}
+                </tr>
+                </table>
+            </div>
+        </div>
+    </main>
     <script src="{% static 'js/main.js' %}"></script>
 </body>
 </html>

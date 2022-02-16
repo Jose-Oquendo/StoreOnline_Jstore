@@ -1,13 +1,56 @@
-h1{
-    color: red;
+body{
+    background-image: url("../img/fondos/fondo_index.jpg");
+    background-attachment: fixed;
+    background-size: cover;
+    font-family: Arial;
+    font-size: 12px;
 }
 
-td{
+nav li{
     display: inline-block;
 }
 
+nav{
+    background-color: rgb(138, 88, 56);
+    width: 84.6%;
+    padding: 2%;
+    margin: auto;
+    margin-top: 2%;
+}
+
+h1{
+    color: red;
+    margin: 1%;
+}
+
+.bienvenida{
+    height: 5%;
+    width: 70%;
+    margin: auto;
+}
+
+.container{
+    background-color: rgba(169, 169, 169, 0.356);
+    height: 100%;
+}
+
+.col{
+    padding: 1%; 
+}
+
+.productos{
+    display: inline-block;
+    width: 70%;
+    height: 80%;
+    margin: 0;
+}
+
+.img_producto{
+    height: 70px;
+}
+
 .fotos{
-    position: relative;
-    width: 40%;
-    height: 50%;
+    width: 50%;
+    height: 70%;
+    margin: 0%;
 }

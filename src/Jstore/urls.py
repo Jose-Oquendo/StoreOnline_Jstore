@@ -19,7 +19,8 @@ from django.urls import path
 from Jstore import views
 
 urlpatterns = [
-    path('index/', views.index, name='index'),
     path('', views.login_view, name='login'),
+    path('logout/', views.logout_view, name='logout'),
+    path('index/', views.index, name='index'),
     path('admin/', admin.site.urls),
 ]
