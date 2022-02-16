@@ -9,6 +9,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/estilos.css' %}"
     <title>J-Store</title>
 </head>
 <body>
@@ -30,6 +31,9 @@
                     {% else %}
                         <span class="text-danger">Disponible</span>
                     {% endif %}
+                    </li>
+                    <li class="list-group-item">
+                        <img class="Fotos" src="{{products.img}}" alt="Foto del producto">
                     </li>
                 </ul>
             </td>

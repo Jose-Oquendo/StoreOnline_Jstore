@@ -6,9 +6,12 @@ def index(request):
         'title' : 'index',
         'message' : 'Nuevo mensaje desde la vista',
         'products' : [
-            {'title':'Playera', 'price':20000, 'stock':True},
-            {'title':'Blusa', 'price':16000, 'stock':True},
-            {'title':'Mochila', 'price':30000, 'stock':True},
+            {'title':'Playera', 'price':20000, 'stock':True, 'img': "static/img/playera.jpg"},
+            {'title':'Blusa', 'price':16000, 'stock':True, 'img': "static/img/blusa.jpg"},
+            {'title':'Mochila', 'price':30000, 'stock':True, 'img': "static/img/bolso.jpg"},
         ]
     }
     return render(request, 'index.html', context)
+
+def login(request):
+    return render(request, 'user/login.html')
