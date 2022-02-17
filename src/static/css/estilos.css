@@ -1,3 +1,8 @@
+*{ 
+    font-family: Arial;
+    font-size: 15px;
+}
+
 body{
     background-image: url("../img/fondos/fondo_index.jpg");
     background-attachment: fixed;
@@ -8,6 +13,13 @@ body{
 
 nav li{
     display: inline-block;
+    padding-left: 2%;
+}
+
+nav li a{
+    text-decoration: none;
+    color: white;
+    font-size: 18px;
 }
 
 nav{
@@ -19,7 +31,6 @@ nav{
 }
 
 h1{
-    color: red;
     margin: 1%;
 }
 

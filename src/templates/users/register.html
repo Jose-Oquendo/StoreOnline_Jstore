@@ -1,0 +1,40 @@
+{% load static %}
+{% load bootstrap4 %}
+{% bootstrap_css %}
+{% bootstrap_javascript jquery='full' %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/login.css' %}">
+    <title>Registro</title>
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <h1>Formulario Login</h1>
+                <form method="POST">
+                    {% csrf_token %}
+                    <div class="form-group">
+                        {{form.username.label_tag}}
+                        {{form.username}}
+                    </div>
+                    <div class="form-group">
+                        {{form.email.label_tag}}
+                        {{form.email}}
+                    </div>
+                    <div class="form-group">
+                        {{form.password.label_tag}}
+                        {{form.password}}
+                    </div>
+                    <button class="btn btn-primary" type="submit">Registrarse</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

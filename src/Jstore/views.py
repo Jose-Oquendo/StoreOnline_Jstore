@@ -4,6 +4,8 @@ from django.contrib import messages
 from django.http import HttpResponse
 from django.shortcuts import redirect, render
 
+from Jstore.forms import RegisterForm
+
 def index(request):
     context={
         'title' : 'index',
@@ -33,3 +35,10 @@ def logout_view(request):
     logout(request)
     messages.success(request, 'Sesion cerrada correctamente' )
     return redirect('login')
+
+def register(request):
+    form = RegisterForm()
+    context = {
+        'form': form,
+    }
+    return render(request, 'users/register.html', context)

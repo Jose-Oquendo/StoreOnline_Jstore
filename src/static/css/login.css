@@ -1,23 +1,38 @@
+*{
+    font-family: Arial;
+    font-size: 15px;
+}
+
 body{
     background-image: url("../img/fondos/paper_texture.jpg");
     background-attachment: fixed;
     background-size: cover;
-    font-family: Arial;
-    font-size: 12px;
 }
 
 #alert{
-    background-color: rgba(114, 114, 114, 0.377);
+    background-color: rgba(70, 70, 70, 0.644);
+    color: white;
+
+}
+
+a{
+    text-decoration: none;
+    color: white;
+    font-size: 18px;
 }
 
 .col{
     display: inline-block;
     margin-top: 10%;
     padding: 3%;
-    background-color: rgba(114, 114, 114, 0.411);
+    background-color: rgba(117, 117, 121, 0.486);
     width: 5%;
 }
 
 .col form div input{
+    width: 50%;
+}
+
+.col form{
     width: 50%;
 }
