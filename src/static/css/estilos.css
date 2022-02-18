@@ -11,25 +11,6 @@ body{
     font-size: 12px;
 }
 
-nav li{
-    display: inline-block;
-    padding-left: 2%;
-}
-
-nav li a{
-    text-decoration: none;
-    color: white;
-    font-size: 18px;
-}
-
-nav{
-    background-color: rgb(138, 88, 56);
-    width: 84.6%;
-    padding: 2%;
-    margin: auto;
-    margin-top: 2%;
-}
-
 h1{
     margin: 1%;
 }
@@ -43,6 +24,8 @@ h1{
 .container{
     background-color: rgba(169, 169, 169, 0.356);
     height: 100%;
+    margin: auto;
+    margin-top: 2%;
 }
 
 .col{

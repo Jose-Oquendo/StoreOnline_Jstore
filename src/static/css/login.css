@@ -9,21 +9,42 @@ body{
     background-size: cover;
 }
 
-#alert{
-    background-color: rgba(70, 70, 70, 0.644);
-    color: white;
+/*--------header-----------*/
 
+header{
+    background-color: rgba(12, 14, 22, 0.698);
+    padding: 2%;
 }
 
-a{
+.title{
+    display: inline-block;
+    color: white;
+    font-size: 18px;
+    font-family: Helvetica;
+}
+
+nav{
+    display: inline-block;
+    margin-left: 50%;
+}
+
+nav li{
+    margin-left: 30px; /*-----para corregir------*/
+    display: inline-block;
+    list-style-type: none;
+}
+
+nav li a{
     text-decoration: none;
     color: white;
     font-size: 18px;
 }
 
+/*--------main-----------*/
+
 .col{
     display: inline-block;
-    margin-top: 10%;
+    margin-top: 2%;
     padding: 3%;
     background-color: rgba(117, 117, 121, 0.486);
     width: 5%;
@@ -35,4 +56,10 @@ a{
 
 .col form{
     width: 50%;
+}
+
+#alert{
+    background-color: rgba(70, 70, 70, 0.644);
+    color: white;
+
 }

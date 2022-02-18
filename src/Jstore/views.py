@@ -1,6 +1,7 @@
 from sre_constants import SUCCESS
 from django.contrib.auth import authenticate, login, logout
 from django.contrib import messages
+from django.contrib.auth.models import User
 from django.http import HttpResponse
 from django.shortcuts import redirect, render
 
@@ -17,6 +18,10 @@ def index(request):
         ]
     }
     return render(request, 'index.html', context)
+
+
+def main(request):
+    return render(request, 'users/main.html')
 
 def login_view(request):
     if request.method == 'POST':
@@ -37,7 +42,13 @@ def logout_view(request):
     return redirect('login')
 
 def register(request):
-    form = RegisterForm()
+    form = RegisterForm(request.POST or None)
+    if request.method=='post' and form.is_valid():
+        user = form.save()
+        if user:
+            login(request, user)
+            messages.success(request, 'Usuario creado de forma exitosa')
+            return redirect('index')
     context = {
         'form': form,
     }

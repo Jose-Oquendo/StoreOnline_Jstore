@@ -19,9 +19,10 @@ from django.urls import path
 from Jstore import views
 
 urlpatterns = [
-    path('', views.login_view, name='login'),
+    path('', views.main, name='main'),
+    path('login/', views.login_view, name='login'),
     path('logout/', views.logout_view, name='logout'),
     path('index/', views.index, name='index'),
-    path('usuarios/register/', views.register, name='register'),
+    path('register/', views.register, name='register'),
     path('admin/', admin.site.urls),
 ]
