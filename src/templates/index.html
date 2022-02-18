@@ -31,32 +31,16 @@
         <div class="row">
             <div class="col">
                 <h1>{{message}}</h1>
-                <table>
-                <tr class="productos">
-                    {% for products in products %}
-                        <td>
-                            <ul class="list-group">
-                                <li class="list-group-item">
-                                    {{ products.title }}
-                                </li>
-                                <li class="list-group-item">
-                                    {{products.price}}
-                                </li>
-                                <li class="list-group-item">
-                                {% if products.stock %}
-                                    <span class="text-danger">Disponible</span>
-                                {% else %}
-                                    <span class="text-danger">Disponible</span>
-                                {% endif %}
-                                </li>
-                                <li class="list-group-item" id="img_producto">
-                                    <img class="fotos" src="{{products.img}}" alt="Foto del producto" width="500">
-                                </li>
-                            </ul>
-                        </td>
+                <ul class="productos">
+                    {% for products in object_list %}
+                        <li class="List-group-item">
+                            {{products.title}}
+                            <span class="text-succes">{{products.price}}</span>
+                        </li>
+                    {% empty %}
+                        <h3>No hay productos en la tienda</h3>
                     {% endfor %}
-                </tr>
-                </table>
+                </ul>
             </div>
         </div>
     </main>

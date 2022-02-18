@@ -5,17 +5,18 @@ from django.contrib.auth.models import User
 from django.http import HttpResponse
 from django.shortcuts import redirect, render
 
+from products.models import Product
 from Jstore.forms import RegisterForm
 
 def index(request):
     context={
-        'title' : 'index',
+        'title' : 'Products',
         'message' : 'Prodctos de nuestra tienda',
-        'products' : [
-            {'title':'Playera', 'price':20000, 'stock':True, 'img': "../static/img/playera.jpg"},
-            {'title':'Blusa', 'price':16000, 'stock':True, 'img': "../static/img/blusa.jpg"},
-            {'title':'Mochila', 'price':30000, 'stock':True, 'img': "../static/img/bolso.jpg"},
-        ]
+        'products' : {
+            'title': 'Productos',
+            'message': 'Listado de productos',
+            'products': Product,
+        }
     }
     return render(request, 'index.html', context)
 
