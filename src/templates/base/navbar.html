@@ -1,0 +1,22 @@
+{% url 'login' as login %}
+{% url 'register' as register %}
+{% url 'main' as main %}
+{% url 'logout' as logout %}
+<nav class="navbar navbar-expand -md bg-dark nabbar-dark">
+    <a href="../" class="navbar-brand">StoreOnline</a>
+    <button type="button" name="button" class="navbar-toggler navbar-toggler-right"
+        data-toggle='collapse' data-target="#navb">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div id="navb" class="navbar-collapse hide">
+        <ul class="nav navbar-nav ml-auto">
+                <li class="navbar-item"><a class="nav-link {% if request.path == main%}activate{% endif%}" href="{{main}}"><span class="fas fa-in-alt">Inicio</span></a></li>
+            {% if user.is_authenticated %}
+                <li class="navbar-item"><a class="nav-link {% if request.path == logout%}activate{% endif%}" href="{{logout}}"><span class="fas fa-in-alt">Salir</span></a></li>
+            {% else %}
+                <li class="navbar-item"><a class="nav-link {% if request.path == login %}activate{% endif%}" href="{{login}}"><span class="fas fa-sign-in-alt">Ingresar</span></a></li>
+                <li class="navbar-item"><a class="nav-link {% if request.path == register %}activate{% endif%}" href="{{register}}"><span class="fas fa-sign-in-alt">Registrarse</span></a></li>
+            {% endif %}
+        </ul>
+    </div>
+ </nav>

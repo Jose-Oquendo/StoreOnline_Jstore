@@ -1,6 +1,6 @@
 *{
     font-family: Arial;
-    font-size: 15px;
+    font-size: 20px;
 }
 
 body{
@@ -9,45 +9,14 @@ body{
     background-size: cover;
 }
 
-/*--------header-----------*/
-
-header{
-    background-color: rgba(12, 14, 22, 0.698);
-    padding: 2%;
-}
-
-.title{
-    display: inline-block;
-    color: white;
-    font-size: 18px;
-    font-family: Helvetica;
-}
-
-nav{
-    display: inline-block;
-    margin-left: 50%;
-}
-
-nav li{
-    margin-left: 30px; /*-----para corregir------*/
-    display: inline-block;
-    list-style-type: none;
-}
-
-nav li a{
-    text-decoration: none;
-    color: white;
-    font-size: 18px;
-}
-
-/*--------main-----------*/
-
+/*--------body--------*/
 .col{
     display: inline-block;
     margin-top: 2%;
     padding: 3%;
     background-color: rgba(117, 117, 121, 0.486);
     width: 5%;
+    height: 100%;
 }
 
 .col form div input{

@@ -1,0 +1,9 @@
+/*------header----------*/
+.navbar-brand{
+    font-size: 40px;
+    color: white
+}
+
+nav li a {
+    color: white;
+}

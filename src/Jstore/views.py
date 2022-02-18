@@ -20,10 +20,13 @@ def index(request):
     return render(request, 'index.html', context)
 
 
+#-------------------------main-----------------------------------------------
 def main(request):
     return render(request, 'users/main.html')
 
 def login_view(request):
+    if request.user.is_authenticated:
+        return redirect('index')
     if request.method == 'POST':
         username = request.POST.get('username')
         password = request.POST.get('password')
@@ -49,6 +52,8 @@ def register(request):
             login(request, user)
             messages.success(request, 'Usuario creado de forma exitosa')
             return redirect('index')
+    if request.user.is_authenticated:
+        return redirect('index')
     context = {
         'form': form,
     }
