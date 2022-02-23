@@ -7,7 +7,7 @@ class RegisterForm(forms.Form):
                                                 'id':'username'}))
     email = forms.EmailField(required=True, 
                 widget=forms.EmailInput(attrs={'class':'form-control',
-                                                'placeholder':'example@misena.edu.co'}))
+                                                'placeholder':'ejemplo@misena.edu.co'}))
     password = forms.CharField(required=True, 
                 widget=forms.PasswordInput(attrs={'class':'form-control'}))
     password2 = forms.CharField(required=True, 

@@ -4,6 +4,10 @@
     color: white
 }
 
+.navbar-brand:hover{
+    color: inherit;
+}
+
 nav li a {
     color: white;
 }

@@ -15,7 +15,7 @@ class ProductListView(generic.ListView):
         context['message'] = 'Listado de productos'
         context['products'] = context['object_list']
         return context
-
+        
 class ProductDetailView(generic.DetailView):
     model = Product
     template_name = 'product.html'

@@ -12,6 +12,7 @@
         <ul class="nav navbar-nav ml-auto">
                 <li class="navbar-item"><a class="nav-link {% if request.path == main%}activate{% endif%}" href="{{main}}"><span class="fas fa-in-alt">Inicio</span></a></li>
             {% if user.is_authenticated %}
+                <li class="navbar-item"><a class="nav-link {% if request.path == logout%}activate{% endif%}" href="../productos"><span class="fas fa-in-alt">productos</span></a></li>
                 <li class="navbar-item"><a class="nav-link {% if request.path == logout%}activate{% endif%}" href="{{logout}}"><span class="fas fa-in-alt">Salir</span></a></li>
             {% else %}
                 <li class="navbar-item"><a class="nav-link {% if request.path == login %}activate{% endif%}" href="{{login}}"><span class="fas fa-sign-in-alt">Ingresar</span></a></li>

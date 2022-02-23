@@ -33,12 +33,11 @@ h1{
 }
 
 .productos{
-    display: flex;
+    display: inline-block;
     width: 70%;
     height: 80%;
     margin: 0;
 }
-
 
 .img_producto{
     height: 70px;

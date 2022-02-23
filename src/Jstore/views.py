@@ -9,14 +9,11 @@ from products.models import Product
 from Jstore.forms import RegisterForm
 
 def index(request):
+    products = Product.objects.all().order_by('tittle')
     context={
         'title' : 'Products',
-        'message' : 'Prodctos de nuestra tienda',
-        'products' : {
-            'title': 'Productos',
-            'message': 'Listado de productos',
-            'products': Product,
-        }
+        'message' : 'Productos de nuestra tienda',
+        'products' : products,
     }
     return render(request, 'index.html', context)
 
@@ -27,7 +24,7 @@ def main(request):
 
 def login_view(request):
     if request.user.is_authenticated:
-        return redirect('index')
+        return redirect('products/index')
     if request.method == 'POST':
         username = request.POST.get('username')
         password = request.POST.get('password')
@@ -47,14 +44,14 @@ def logout_view(request):
 
 def register(request):
     if request.user.is_authenticated:
-        return redirect('index')
+        return redirect('products/index')
     form = RegisterForm(request.POST or None)
     if request.method == 'POST' and form.is_valid():
         user = form.save()
         if user:
             login(request, user)
             messages.success(request, 'Usuario creado de forma exitosa')
-            return redirect('index')
+            return redirect('products/index')
     context = {
         'form': form,
     }
