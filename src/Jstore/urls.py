@@ -20,10 +20,9 @@ from Jstore import views
 
 urlpatterns = [
     path('', views.main, name='main'),
-    path('login/', views.login_view, name='login'),
-    path('logout/', views.logout_view, name='logout'),
-    path('index/', views.index, name='index'),
-    path('register/', views.register, name='register'),
+    path('usuarios/login/', views.login_view, name='login'),
+    path('usuarios/logout/', views.logout_view, name='logout'),
+    path('usuarios/register/', views.register, name='register'),
     path('admin/', admin.site.urls),
-    path('productos/', include('products.urls', name="products"))
+    path('productos/', include('products.urls', namespace='products')),
 ]

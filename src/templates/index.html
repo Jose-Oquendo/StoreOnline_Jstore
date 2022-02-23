@@ -32,10 +32,10 @@
             <div class="col">
                 <h1>{{message}}</h1>
                 <ul class="productos">
-                    {% for products in object_list %}
+                    {% for product in products %}
                         <li class="List-group-item">
-                            {{products.title}}
-                            <span class="text-succes">{{products.price}}</span>
+                            {{product.tittle}}
+                            <span class="text-succes">{{product.price}}</span>
                         </li>
                     {% empty %}
                         <h3>No hay productos en la tienda</h3>
