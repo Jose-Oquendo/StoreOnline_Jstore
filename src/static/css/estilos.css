@@ -1,4 +1,4 @@
-*{ 
+*{
     font-family: Arial;
     font-size: 20px;
 }
@@ -7,44 +7,17 @@ body{
     background-image: url("../img/fondos/fondo_index.jpg");
     background-attachment: fixed;
     background-size: cover;
-    font-family: Arial;
-    font-size: 12px;
 }
 
-h1{
-    margin: 1%;
-}
-
-.bienvenida{
-    height: 5%;
-    width: 70%;
-    margin: auto;
-}
-
-.container{
-    background-color: rgba(169, 169, 169, 0.356);
-    height: 100%;
-    margin: auto;
-    margin-top: 2%;
+form{
+    padding: 2%;
+    background-color: rgba(117, 117, 121, 0.486);
 }
 
 .col{
-    padding: 1%; 
-}
-
-.productos{
     display: inline-block;
-    width: 70%;
-    height: 80%;
-    margin: 0;
-}
-
-.img_producto{
-    height: 70px;
-}
-
-.fotos{
-    width: 50%;
-    height: 70%;
-    margin: 0%;
+    margin-top: 2%;
+    padding: 3%;
+    width: 5%;
+    height: 100%;
 }

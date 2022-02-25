@@ -19,3 +19,18 @@ class ProductListView(generic.ListView):
 class ProductDetailView(generic.DetailView):
     model = Product
     template_name = 'product.html'
+
+class ProductSearchView(generic.ListView):
+    template_name = 'search.html'
+
+    def get_queryset(self):
+        return Product.objects.filter(tittle__icontains = self.query())
+
+    def query(self):
+        return self.request.GET.get('q')
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['query'] = self.query()
+        context['count'] = context['product_list'].count()
+        return context

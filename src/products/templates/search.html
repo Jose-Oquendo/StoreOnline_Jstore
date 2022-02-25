@@ -1,0 +1,23 @@
+{% extends 'base/base.html' %}}
+{% load static %}
+{% block title %}
+    Busqueda
+{% endblock title %}
+{% block content %}
+    <div class="col">
+        {% include 'snipped/s_search.html' with query=query %}
+        <hr>
+        <p>Resultado para: {{query}}</p>
+        <div class="row">
+            {% for object in product_list %}
+                <div class="col-3 mt-5">
+                    {% include 'snipped/s_products.html' with product=object %}
+                </div>
+            {% empty %}
+                <div class="col-3 mt-5">
+                    <h3>No hay productos disponibles con ese nombre en la tienda, muchas gracias y no vuelva</h3>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+{% endblock content %}

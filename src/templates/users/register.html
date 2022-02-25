@@ -7,9 +7,9 @@
     <div class="row">
         <div class="col">
             <h1>Registro</h1>
-            <form method="post">{% csrf_token %}
+            <form method="POST" class="register">{% csrf_token %}
                 {% for field in form %}
-                    <div class="form-group">
+                    <div class="form-group" id="field_registro">
                         {{field.label_tag}}
                         {{field}}
 
@@ -21,7 +21,9 @@
                         {% endif %}
                     </div>
                 {% endfor %}
-                <button class="btn btn-primary" type="submit">Registrarse</button>
+                <div class="bnt_registro">
+                    <button class="btn btn-primary" type="submit">Registrarse</button>
+                </div>
             </form>
         </div>
     </div>

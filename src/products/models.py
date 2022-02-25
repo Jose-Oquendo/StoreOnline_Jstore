@@ -24,10 +24,11 @@ class Product(models.Model):
 def set_slug(sender, instance, *args, **kwargs):
     if instance.tittle and not instance.slug:
         slug = slugify(instance.tittle)
+        instance.slug = slug
         while Product.objects.filter(slug = slug).exists():
             slug = slugify(
                 '{}-{}'.format(instance.tittle, str(uuid.uuid4()))[:8]
             )
-    instance.slug = slug
+    
     
 pre_save.connect(set_slug, sender = Product)

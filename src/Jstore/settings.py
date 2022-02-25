@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'bootstrap4',
     #apps nuestras
     'products',
+    'categories',
 ]
 
 MIDDLEWARE = [
