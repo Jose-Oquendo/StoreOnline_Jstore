@@ -9,7 +9,7 @@ body{
     background-size: cover;
 }
 
-form{
+.form_login{
     padding: 2%;
     background-color: rgba(117, 117, 121, 0.486);
 }

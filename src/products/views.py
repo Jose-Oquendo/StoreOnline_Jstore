@@ -1,7 +1,8 @@
-from pyexpat import model
+from unicodedata import category
 from django.shortcuts import render
 from products.models import Product
 from django.views import generic
+from django.db.models import Q
 # Create your views here.
 
 from products.models import Product
@@ -24,7 +25,8 @@ class ProductSearchView(generic.ListView):
     template_name = 'search.html'
 
     def get_queryset(self):
-        return Product.objects.filter(tittle__icontains = self.query())
+        filter = Q(tittle__icontains = self.query() | Q(category_tittle_icontains = self.query()))
+        return Product.objects.filter(filter)
 
     def query(self):
         return self.request.GET.get('q')

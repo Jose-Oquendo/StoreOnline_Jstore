@@ -32,7 +32,7 @@ def login_view(request):
         if user:
             login(request, user)
             messages.success(request, 'Bienvenido {}'.format(user.username))
-            return redirect('products/index') #se redirecciona al name en las urls
+            return redirect('products:index') #se redirecciona al name en las urls
         else:
             messages.error(request, 'Usuario o contraseña No validos')
     return render(request, 'users/login.html')
@@ -43,9 +43,9 @@ def logout_view(request):
     return redirect('login')
 
 def register(request):
-    form = RegisterForm(request.POST or None)
     if request.user.is_authenticated:
         return redirect('products/index')
+    form = RegisterForm(request.POST or None)
     if request.method == 'POST' and form.is_valid():
         user = form.save()
         if user:

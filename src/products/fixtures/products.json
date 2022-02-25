@@ -1,0 +1,50 @@
+[
+{
+    "model": "products.product",
+    "pk": 3,
+    "fields": {
+        "tittle": "Fresas Delvalle",
+        "description": "Paquete de fresas rojas y peligrosas. Las mejores del barrio.",
+        "price": "15000.00",
+        "slug": "fresas-delvalle",
+        "image": "products/fresas_Pda0rrG.jpg",
+        "created_at": "2022-02-23T23:13:50.582Z"
+    }
+},
+{
+    "model": "products.product",
+    "pk": 4,
+    "fields": {
+        "tittle": "Cerezas en alm\u00edbar La reina",
+        "description": "Tarro de cerezas, jugosas, deliciosas. 125 gramos.",
+        "price": "5500.00",
+        "slug": "cerezas-en-almibar-la-reina",
+        "image": "products/cerezas_SMKtZrR.jpg",
+        "created_at": "2022-02-23T23:34:21.624Z"
+    }
+},
+{
+    "model": "products.product",
+    "pk": 5,
+    "fields": {
+        "tittle": "Manzanas Rojas DelValle",
+        "description": "Paquete de manzanas rojas. Cualquier \u00e1ngel de la muerte se matar\u00eda por ellas.",
+        "price": "5000.00",
+        "slug": "manzanas-rojas-delvalle",
+        "image": "products/manzanas_dp5OvnE.jpg",
+        "created_at": "2022-02-23T23:52:39.111Z"
+    }
+},
+{
+    "model": "products.product",
+    "pk": 6,
+    "fields": {
+        "tittle": "Mangos DelValle",
+        "description": "Manguitos reci\u00e9n mochados del \u00e1rbol",
+        "price": "6000.00",
+        "slug": "mangos-delvalle",
+        "image": "products/mangos_ICb0B5R.jpg",
+        "created_at": "2022-02-23T23:55:58.156Z"
+    }
+}
+]
