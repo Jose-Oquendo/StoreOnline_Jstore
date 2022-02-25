@@ -1,10 +1,11 @@
 from sre_constants import SUCCESS
 from django.contrib.auth import authenticate, login, logout
 from django.contrib import messages
-from django.contrib.auth.models import User
+#from django.contrib.auth.models import User
 from django.http import HttpResponse
 from django.shortcuts import redirect, render
 
+from users.models import User
 from products.models import Product
 from Jstore.forms import RegisterForm
 
@@ -51,7 +52,7 @@ def register(request):
         if user:
             login(request, user)
             messages.success(request, 'Usuario creado de forma exitosa')
-            return redirect('products/index')
+            return redirect('products:index')
     context = {
         'form': form,
     }

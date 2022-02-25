@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     #apps nuestras
     'products',
     'categories',
+    'users',
 ]
 
 MIDDLEWARE = [
@@ -55,6 +56,11 @@ MIDDLEWARE = [
 ]
 
 ROOT_URLCONF = 'Jstore.urls'
+
+ROOT_URLCONF = 'Jstore.urls'
+
+AUTH_USER_MODEL = 'users.User'
+
 
 TEMPLATES = [
     {
