@@ -6,8 +6,13 @@
 body{
     background-image: url("../img/fondos/fondo_index.jpg");
     background-attachment: fixed;
-    background-size: cover;
+    background-size: cover;   
 }
+
+/*barra de desplazamiento invisible*/
+body::-webkit-scrollbar {
+    display: none;
+  }
 
 .form_login{
     padding: 2%;

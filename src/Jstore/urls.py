@@ -26,6 +26,7 @@ urlpatterns = [
     path('usuarios/register/', views.register, name='register'),
     path('admin/', admin.site.urls),
     path('productos/', include('products.urls', namespace='products')),
+    path('carrito/', include('carts.urls', namespace='carts')),
 ]
 
 if settings.DEBUG:

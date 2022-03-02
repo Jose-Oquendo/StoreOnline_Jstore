@@ -2,23 +2,32 @@
 {% url 'register' as register %}
 {% url 'main' as main %}
 {% url 'logout' as logout %}
+{% url 'carts:carts' as cart %}
+
+{% load static %}
+
 <nav class="navbar navbar-expand -md bg-dark nabbar-dark">
-    <a href="{% url 'products:index' %}" class="navbar-brand">Alnus StoreOnline</a>
-    <button type="button" name="button" class="navbar-toggler navbar-toggler-right"
-        data-toggle='collapse' data-target="#navb">
+    <a href="{% url 'products:index' %}" class="navbar-brand titulo"><img class="logo" src="{% static 'img/logo.png' %}"> Alnus</a>
+    <button type="button" name="button" class="navbar-toggler navbar-toggler-right" data-toggle='collapse' data-target="#navb">
         <span class="navbar-toggler-icon"></span>
     </button>
     <div id="navb" class="navbar-collapse hide">
+        <ul class="navbar-nav carrito">
+            <li class="nav-item {% if request.path == cart %}activate{% endif %}"><a class="nav-link">Mi carrito <i class="fas fa-cart-shopping"></i></a></li>
+        </ul>
         <ul class="nav navbar-nav ml-auto">
-                <li class="navbar-item"><a class="nav-link {% if request.path == main%}activate{% endif%}" href="{{main}}"><span class="fas fa-in-alt">Acerca de nosotros</span></a></li>
-                <li class="navbar-item"><a class="nav-link {% if request.path == logout%}activate{% endif%}" href="{% url 'products:index' %}"><span class="fas fa-in-alt">productos</span></a></li>
+                <li class="navbar-item"><a class="nav-link {% if request.path == main%}activate{% endif%}" href="{{main}}">Inicio</a></li>
+                <li class="navbar-item"><a class="nav-link {% if request.path == logout%}activate{% endif%}" href="{% url 'products:index' %}">productos</a></li>
             {% if user.is_authenticated %}
-                <li class="navbar-item"><span class="fas fa-in-alt">Estado: activo</span></li>
-                <li class="navbar-item"><a class="nav-link {% if request.path == logout%}activate{% endif%}" href="{{logout}}"><span class="fas fa-in-alt">Salir</span></a></li>
+                <li class="navbar-item">Estado: activo</li>
+                <li class="navbar-item"><a class="nav-link {% if request.path == logout%}activate{% endif%}" href="{{logout}}">Salir <i class="fas fa-right-to-bracket"></i></a></li>
             {% else %}
-                <li class="navbar-item"><a class="nav-link {% if request.path == login %}activate{% endif%}" href="{{login}}"><span class="fas fa-sign-in-alt">Ingresar</span></a></li>
-                <li class="navbar-item"><a class="nav-link {% if request.path == register %}activate{% endif%}" href="{{register}}"><span class="fas fa-sign-in-alt">Registrarse</span></a></li>
+                <li class="navbar-item"><a class="nav-link {% if request.path == login %}activate{% endif%}" href="{{login}}">Ingresar <i class="fas fa-right-to-bracket"></i></a></li>
+                <li class="navbar-item"><a class="nav-link {% if request.path == register %}activate{% endif%}" href="{{register}}">Registrarse <i class="fas fa-right-to-bracket"></i></a></li>
             {% endif %}
         </ul>
     </div>
  </nav>
+ <!--Para poner el el footer
+<a href="https://www.flaticon.es/iconos-gratis/hoja" title="hoja iconos">Hoja iconos creados por Freepik - Flaticon</a>
+-->

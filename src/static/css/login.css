@@ -1,13 +1,13 @@
-.col .register div{
+.col-login .register div{
     width: 40%;
     display: inline-block;
 }
 
-.col form #field_registro input{
+.col-login form #field_registro input{
     width: 90%;
 }
 
-.col form div input{
+.col-login form div input{
     width: 50%;
 }
 

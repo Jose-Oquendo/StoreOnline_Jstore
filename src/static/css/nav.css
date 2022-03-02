@@ -4,14 +4,19 @@
     color: white
 }
 
-.navbar-brand:hover{
-    color: inherit;
-}
-
 nav li a {
     color: white;
 }
 
-.nav li span{
+.nav li i{
     color: white;
+}
+
+.titulo{
+    width: 150spx;
+}
+
+.logo{
+    width: 60px;
+    filter: invert(100%);
 }
