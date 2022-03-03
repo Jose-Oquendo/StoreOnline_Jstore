@@ -13,13 +13,13 @@
     </button>
     <div id="navb" class="navbar-collapse hide">
         <ul class="navbar-nav carrito">
-            <li class="nav-item {% if request.path == cart %}activate{% endif %}"><a class="nav-link">Mi carrito <i class="fas fa-cart-shopping"></i></a></li>
+            <li class="nav-item {% if request.path == cart %}activate{% endif %}"><a class="nav-link" href="{{cart}}">Mi carrito <i class="fas fa-cart-shopping"></i></a></li>
         </ul>
         <ul class="nav navbar-nav ml-auto">
                 <li class="navbar-item"><a class="nav-link {% if request.path == main%}activate{% endif%}" href="{{main}}">Inicio</a></li>
                 <li class="navbar-item"><a class="nav-link {% if request.path == logout%}activate{% endif%}" href="{% url 'products:index' %}">productos</a></li>
             {% if user.is_authenticated %}
-                <li class="navbar-item">Estado: activo</li>
+                <li class="navbar-item"><i class="fa fa-circle-user"></i></li>
                 <li class="navbar-item"><a class="nav-link {% if request.path == logout%}activate{% endif%}" href="{{logout}}">Salir <i class="fas fa-right-to-bracket"></i></a></li>
             {% else %}
                 <li class="navbar-item"><a class="nav-link {% if request.path == login %}activate{% endif%}" href="{{login}}">Ingresar <i class="fas fa-right-to-bracket"></i></a></li>
