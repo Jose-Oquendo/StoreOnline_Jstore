@@ -20,3 +20,7 @@ nav li a {
     width: 60px;
     filter: invert(100%);
 }
+
+.fa-circle-user{
+    filter: invert(0%);
+}

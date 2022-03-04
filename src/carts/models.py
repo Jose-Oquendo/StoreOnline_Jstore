@@ -17,7 +17,7 @@ class Cart(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
-        return '' 
+        return self.cart_id
 
 def ser_cart_id(sender, instance, *args, **kwargs):
     if not instance.cart_id:

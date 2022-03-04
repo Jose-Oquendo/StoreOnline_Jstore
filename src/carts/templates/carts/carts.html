@@ -1,0 +1,45 @@
+{% extends 'base/base.html' %}
+{% load product_extras %}
+{% block content %}
+    {% if carts.products.exists %}
+        <div class="">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th scope="col"></th>
+                        <th scope="col"></th>
+                        <th scope="col"></th>
+                        <th scope="col">Cantidad</th>
+                        <th scope="col">Precio</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for product in cart.products.all %}
+                        <tr>
+                            <th>{{forloop.counter}}</th>
+                            <th>
+                                {% if product.image %}
+                                    <img src="{{product.image.url}}" alt="imagen del producto" width="60" height="60">
+                                {% endif %}
+                            </th>
+                            <th>
+                                <a hred="{% url 'products:products' product.slug %}">{{product.tittle}}</a>
+                            </th>
+                            <th>1</th>
+                            <th><span class="font-weight-bold text-danger">{{product.price | price_format}}</span></th>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+        <div class="">
+            
+        </div>
+        {% else %}
+            <div class="col">
+                <p class="h3">Tu carrito esta vacio</p>
+                <a href="{% url 'products:index' %}"></a>
+            </div>
+    {% endif %}
+
+{% endblock content %}
