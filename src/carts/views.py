@@ -5,6 +5,7 @@ from this import d
 from webbrowser import get
 from django.shortcuts import render, redirect, get_object_or_404
 from carts.models import Cart
+from carts.models import CartProduct
 # Create your views here.
 
 from carts.utils import get_or_create_cart
@@ -19,11 +20,18 @@ def cart(request):
 
 def add(request):
     cart = get_or_create_cart(request)
-    product2 = Product.objects.get(pk=request.POST.get('product_id'))
+    product = Product.objects.get(pk=request.POST.get('product_id'))
     prod = get_object_or_404(Product, pk=request.POST.get('product_id'))
-    cart.products.add(product2)
+    quantity = request.POST.get('quantity', 1)
+
+    cart_product = CartProduct.objects.create(
+        cart = cart,
+        product = product,
+        quantity =  quantity
+    )
+   
     return render(request, 'carts/add.html', {
-        'product': product2
+        'product': product
     })
 
 def remove(request):

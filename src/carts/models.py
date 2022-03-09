@@ -11,7 +11,7 @@ from products.models import Product
 class Cart(models.Model):
     cart_id = models.CharField(max_length=100, null=False, blank=False, unique=True)
     user = models.ForeignKey(User, null=True, blank=True, on_delete=models.CASCADE)
-    products = models.ManyToManyField(Product)
+    products = models.ManyToManyField(Product, through='CartProduct')
     subtotal = models.DecimalField(default= 0.0, max_digits= 8, decimal_places=2)
     total = models.DecimalField(default= 0.0, max_digits= 8, decimal_places=2)
     created_at = models.DateTimeField(auto_now_add=True)
@@ -45,7 +45,7 @@ def set_cart_id(sender, instance, *args, **kwargs):
 
 def update_totals(sender, instance, action, *args, **kwargs):
     if action == 'post_add' or action == 'post_remove' or action == 'post_clear':
-        instance.Cart.update_totals()
+        instance.update_totals()
 
 pre_save.connect(set_cart_id, sender=Cart)
-m2m_changed.connect(update_totals,sender=Cart)
+#m2m_changed.connect(update_totals,sender=Cart.products.through)
