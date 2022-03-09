@@ -21,8 +21,20 @@
                 <li class="navbar-item"><a class="nav-link {% if request.path == main%}activate{% endif%}" href="{{main}}">Inicio</a></li>
                 <li class="navbar-item"><a class="nav-link {% if request.path == logout%}activate{% endif%}" href="{% url 'products:index' %}">productos</a></li>
             {% if user.is_authenticated %}
+                <!--
                 <li class="navbar-item"><i id='user' class="fa fa-circle-user"></i></li>
                 <li class="navbar-item"><a class="nav-link {% if request.path == logout%}activate{% endif%}" href="{{logout}}">Salir <i class="fas fa-right-to-bracket"></i></a></li>
+                -->
+                <li class="navbar-item">
+                    <button type="button" class="btn dropdown-toggle" data-toggle="dropdown">
+                        <i id='user' class="fa fa-circle-user"></i>
+                    </button>
+                    <div class="dropdown-menu">
+                        <p class="nameUser">{{user.username}}</p>
+                        <a class="dropdown-item {% if request.path == logout%}activate{% endif%}" href="{{logout}}">Salir <i class="fas fa-right-to-bracket"></i></a>
+                    </div>
+                </li>
+
             {% else %}
                 <li class="navbar-item"><a class="nav-link {% if request.path == login %}activate{% endif%}" href="{{login}}">Ingresar <i class="fas fa-right-to-bracket"></i></a></li>
                 <li class="navbar-item"><a class="nav-link {% if request.path == register %}activate{% endif%}" href="{{register}}">Registrarse <i class="fas fa-right-to-bracket"></i></a></li>

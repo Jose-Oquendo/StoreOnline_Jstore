@@ -21,6 +21,21 @@ nav li a {
     filter: invert(100%);
 }
 
-.fa-circle-user{
-    filter: invert(0%);
+#user{
+    font-size: 35px;
+    padding: 2%;
+    color: rgba(240, 240, 240, 0.884);
 }
+
+.dropdown-menu{
+    width: 30px;
+    position: absolute;
+    left: 85%;
+    background-color: rgba(117, 117, 121, 0.87);
+}
+
+.nameUser{
+    text-align: center;
+}
+
+

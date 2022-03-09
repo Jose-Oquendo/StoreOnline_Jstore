@@ -1,4 +1,5 @@
 {% extends 'base/base.html' %}
+{% load static %}
 {% block title %}
     Login
 {% endblock title %}
@@ -6,7 +7,13 @@
 <div class="container">
     <div class="row">
         <div class="col">
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur perferendis dolores doloremque voluptatem provident ipsam nemo quisquam ab vel recusandae dolor illo facere, fugiat cumque officia vitae quaerat! Ab, eaque!</p>
+            <div class="section1">
+                <p>Productos de la mas grande calidad</p>
+                <img src="{% static 'img/img2.jpg' %}" alt="">
+            </div>
+            <div class="section2">
+                <img src="{% static 'img/img1.jpg' %}" alt="">
+            </div>
         </div>
     </div>
 </div>

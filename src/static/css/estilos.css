@@ -21,8 +21,18 @@ body::-webkit-scrollbar {
 
 .col{
     display: inline-block;
-    margin-top: 2%;
+    margin-top: 1%;
     padding: 3%;
     width: 5%;
     height: 100%;
+}
+
+/*main*/
+.section1{
+    font-size: 50px;
+    font-family:'Times New Roman', Times, serif;
+    margin: auto;
+}
+.section1 img{
+    width: 100%;
 }

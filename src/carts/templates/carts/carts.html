@@ -1,8 +1,8 @@
 {% extends 'base/base.html' %}
 {% load product_extras %}
 {% block content %}
-    {% if carts.products.exists %}
-        <div class="">
+    {% if cart.products.exists %}
+        <div class="col-8">
             <table class="table">
                 <thead>
                     <tr>
@@ -24,6 +24,7 @@
                             </th>
                             <th>
                                 <a hred="{% url 'products:products' product.slug %}">{{product.tittle}}</a>
+                                {% include 'carts/snippets/remove.html' %}
                             </th>
                             <th>1</th>
                             <th><span class="font-weight-bold text-danger">{{product.price | price_format}}</span></th>
@@ -32,8 +33,18 @@
                 </tbody>
             </table>
         </div>
-        <div class="">
-            
+        <div class="col">
+            <div class="card">
+                <div class="card-body">
+                    <div class="font-weight-bold">
+                        subtotal({{cart.products.count}}): 
+                        <span class="text-danger">{{cart.subtotal | price_format }}</span>
+                    </div>
+                    <div class="mt-2">
+                        <a href="" class="btn btn-warning">Proceder al pago</a>
+                    </div>
+                </div>
+            </div>
         </div>
         {% else %}
             <div class="col">
