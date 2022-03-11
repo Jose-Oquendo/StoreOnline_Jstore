@@ -5,3 +5,8 @@
 .card-text{
     margin-top: 20%;
 }
+
+.card-body{
+    font-family: Helvetica, Arial,sans-serif; 
+    font-size: 20px; 
+}

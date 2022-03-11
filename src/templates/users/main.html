@@ -3,16 +3,20 @@
 {% block title %}
     Login
 {% endblock title %}
+{% block main %}
+<div class="section1">
+    <h2>Disfrua la naturaleza</h2>
+    <a href="{% url 'products:index' %}"><img src="{% static 'img/img2.jpg' %}" alt=""></a>
+</div>
+{% endblock main %}
 {% block content %}
 <div class="container">
     <div class="row">
-        <div class="col">
-            <div class="section1">
-                <p>Productos de la mas grande calidad</p>
-                <img src="{% static 'img/img2.jpg' %}" alt="">
-            </div>
+        <div class="col main">
             <div class="section2">
-                <img src="{% static 'img/img1.jpg' %}" alt="">
+                <h2 id="titulo1">Desde la comodidad de tu hogar.</h2>
+                <img id="online" src="{% static 'img/img1.jpg' %}" alt="">
+                <p>Disfruta de increibles y naturales productos al alcance de un click, con calidad garantizada gracias a nuestros proveedores certificados</p>
             </div>
         </div>
     </div>

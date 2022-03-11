@@ -1,14 +1,18 @@
 /*------header----------*/
+nav{
+    font-size: 20px;
+    font-family: Helvetica, Arial,sans-serif;
+    background-color: rgb(59, 37, 26);
+}
 .navbar-brand{
     font-size: 40px;
     color: white
 }
-
 nav li a {
     color: white;
 }
 
-.nav li i{
+nav li i{
     color: white;
 }
 
@@ -29,8 +33,9 @@ nav li a {
 
 .dropdown-menu{
     width: 30px;
+    font-size: 18px;
     position: absolute;
-    left: 85%;
+    left: 88%;
     background-color: rgba(117, 117, 121, 0.87);
 }
 

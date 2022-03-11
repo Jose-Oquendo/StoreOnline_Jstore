@@ -4,17 +4,17 @@
     {{title}}
 {% endblock title %}
 {% block content %}
-<div class="col">
-    <h4 class="text-center">{{message}}</h4>
-    {% include 'snipped/s_search.html'%}
-    <div class="row">
-        {% for product in products %}
-        <div class="col-3 mt-5">
-            {% include 'snipped/s_products.html' with products=object %}
+    <div class="col">
+        <h4 class="text-center">{{message}}</h4>
+        {% include 'snipped/s_search.html'%}
+        <div class="row">
+            {% for product in products %}
+            <div class="col-3 mt-5">
+                {% include 'snipped/s_products.html' with products=object %}
+            </div>
+        {% empty%}
+            <h3> no hay productos duque acabo con todo</h3>
+        {% endfor %}
         </div>
-    {% empty%}
-        <h3> no hay productos duque acabo con todo</h3>
-    {% endfor %}
     </div>
-</div>
 {% endblock content %}

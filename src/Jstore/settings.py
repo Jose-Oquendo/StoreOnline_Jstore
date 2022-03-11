@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     'categories',
     'users',
     'carts',
+    'orders',
 ]
 
 MIDDLEWARE = [
@@ -137,9 +138,11 @@ STATIC_URL = '/static/'
 
 STATICFILES_DIRS = [
     BASE_DIR , "static",
-    '/src/static/',
+    '../src/static/',
 ]
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
+#autofield
+DEFAULT_AUTO_FIELD='django.db.models.AutoField'

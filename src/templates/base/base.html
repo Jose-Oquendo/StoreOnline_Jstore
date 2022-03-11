@@ -19,6 +19,10 @@
     <header>
         {% include 'base/navbar.html' %}
     </header>
+    <div class="img_main">
+        {% block main %}
+        {% endblock main %}
+    </div>
     <main class="container">
         <div class="row mt-3">
             {% block content %}

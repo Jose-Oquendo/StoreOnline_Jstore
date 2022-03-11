@@ -1,12 +1,8 @@
-*{
-    font-family: Arial;
-    font-size: 20px;
-}
-
 body{
-    background-image: url("../img/fondos/fondo_index.jpg");
     background-attachment: fixed;
-    background-size: cover;   
+    background-size: cover;
+    font-family: Helvetica, Arial,sans-serif; 
+    font-size: 18px; 
 }
 
 /*barra de desplazamiento invisible*/
@@ -28,11 +24,34 @@ body::-webkit-scrollbar {
 }
 
 /*main*/
+.img_main{
+    margin-top: 3%;
+}
+.main{
+    font-size: 120%;
+    margin-top: 2%;
+}
 .section1{
-    font-size: 50px;
-    font-family:'Times New Roman', Times, serif;
-    margin: auto;
+    font-size: 180%;
+    text-align: center;
+    font-style: italic;
+    width: 100%;
 }
 .section1 img{
+    margin: 0;
     width: 100%;
+}
+#online{
+    float: left;
+    margin-right: 2%;
+}
+.section2{
+    background-color: rgba(124, 117, 110, 0.5);
+    height: 310px;
+    padding: 1%;
+}
+.section2 h2{
+    text-align: center;
+    font-style: italic;
+    margin: 2%;
 }

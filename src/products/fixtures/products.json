@@ -1,50 +1,146 @@
 [
-{
-    "model": "products.product",
-    "pk": 3,
-    "fields": {
-        "tittle": "Fresas Delvalle",
-        "description": "Paquete de fresas rojas y peligrosas. Las mejores del barrio.",
-        "price": "15000.00",
-        "slug": "fresas-delvalle",
-        "image": "products/fresas_Pda0rrG.jpg",
-        "created_at": "2022-02-23T23:13:50.582Z"
+    {
+        "model": "products.product",
+        "pk": 7,
+        "fields": {
+            "tittle": "Cerezas",
+            "description": "Paquete de 15 cerezas rojas y deliciosas. Producto divino caído del cielo.",
+            "price": "4300.00",
+            "slug": "cerezas",
+            "image": "products/cherry.jpg",
+            "created_at": "2022-03-11T22:07:40.886Z"
+        }
+    },
+    {
+        "model": "products.product",
+        "pk": 8,
+        "fields": {
+            "tittle": "Manzanas",
+            "description": "5 manzanas recién sacadas del árbol",
+            "price": "5500.00",
+            "slug": "manzanas",
+            "image": "products/manzana.jpg",
+            "created_at": "2022-03-11T22:13:15.275Z"
+        }
+    },
+    {
+        "model": "products.product",
+        "pk": 9,
+        "fields": {
+            "tittle": "Fresas",
+            "description": "Paquetico de 24 fresitas rojitas",
+            "price": "7500.00",
+            "slug": "fresas",
+            "image": "products/fresas.jpg",
+            "created_at": "2022-03-11T22:13:51.724Z"
+        }
+    },
+    {
+        "model": "products.product",
+        "pk": 10,
+        "fields": {
+            "tittle": "Peras",
+            "description": "Paquete de 4 peras felices.",
+            "price": "3000.00",
+            "slug": "peras",
+            "image": "products/pera.jpg",
+            "created_at": "2022-03-11T22:14:31.209Z"
+        }
+    },
+    {
+        "model": "products.product",
+        "pk": 11,
+        "fields": {
+            "tittle": "Manzana verde",
+            "description": "La hermanastra de la manzana roja, pero mas acida.",
+            "price": "5500.00",
+            "slug": "manzana-verde",
+            "image": "products/manzana-verde.jpg",
+            "created_at": "2022-03-11T22:15:13.216Z"
+        }
+    },
+    {
+        "model": "products.product",
+        "pk": 12,
+        "fields": {
+            "tittle": "Bananas",
+            "description": "Racimo de 6 bananas para su deleite.",
+            "price": "4400.00",
+            "slug": "bananas",
+            "image": "products/bananas.jpg",
+            "created_at": "2022-03-11T22:15:58.015Z"
+        }
+    },
+    {
+        "model": "products.product",
+        "pk": 13,
+        "fields": {
+            "tittle": "Mangos",
+            "description": "3 manguitos. Solo a un tonto no le gustaría el mango.",
+            "price": "7400.00",
+            "slug": "mangos",
+            "image": "products/mangos.jpg",
+            "created_at": "2022-03-11T22:30:58.002Z"
+        }
+    },
+    {
+        "model": "products.product",
+        "pk": 14,
+        "fields": {
+            "tittle": "Sandia",
+            "description": "Delicioso melón de agua",
+            "price": "8000.00",
+            "slug": "sandia",
+            "image": "products/sandiaa.jpg",
+            "created_at": "2022-03-11T22:32:10.147Z"
+        }
+    },
+    {
+        "model": "products.product",
+        "pk": 15,
+        "fields": {
+            "tittle": "Piña",
+            "description": "Piña para la niña",
+            "price": "3000.00",
+            "slug": "pina",
+            "image": "products/piña.jpeg",
+            "created_at": "2022-03-11T22:33:35.719Z"
+        }
+    },
+    {
+        "model": "products.product",
+        "pk": 16,
+        "fields": {
+            "tittle": "Moras",
+            "description": "paquetico de moras. Pa un jugo, uffff.",
+            "price": "4600.00",
+            "slug": "moras",
+            "image": "products/moras.jpg",
+            "created_at": "2022-03-11T22:34:24.217Z"
+        }
+    },
+    {
+        "model": "products.product",
+        "pk": 17,
+        "fields": {
+            "tittle": "Uvas rojas",
+            "description": "racimito de uvas, las que vengan en el.",
+            "price": "3000.00",
+            "slug": "uvas-rojas",
+            "image": "products/uva-roja.jpg",
+            "created_at": "2022-03-11T22:35:15.754Z"
+        }
+    },
+    {
+        "model": "products.product",
+        "pk": 18,
+        "fields": {
+            "tittle": "Uvas azules",
+            "description": "Prima de las uvas rojas, pero acidas.",
+            "price": "3000.00",
+            "slug": "uvas-azules",
+            "image": "products/uva-azul.jpg",
+            "created_at": "2022-03-11T22:35:50.718Z"
+        }
     }
-},
-{
-    "model": "products.product",
-    "pk": 4,
-    "fields": {
-        "tittle": "Cerezas en alm\u00edbar La reina",
-        "description": "Tarro de cerezas, jugosas, deliciosas. 125 gramos.",
-        "price": "5500.00",
-        "slug": "cerezas-en-almibar-la-reina",
-        "image": "products/cerezas_SMKtZrR.jpg",
-        "created_at": "2022-02-23T23:34:21.624Z"
-    }
-},
-{
-    "model": "products.product",
-    "pk": 5,
-    "fields": {
-        "tittle": "Manzanas Rojas DelValle",
-        "description": "Paquete de manzanas rojas. Cualquier \u00e1ngel de la muerte se matar\u00eda por ellas.",
-        "price": "5000.00",
-        "slug": "manzanas-rojas-delvalle",
-        "image": "products/manzanas_dp5OvnE.jpg",
-        "created_at": "2022-02-23T23:52:39.111Z"
-    }
-},
-{
-    "model": "products.product",
-    "pk": 6,
-    "fields": {
-        "tittle": "Mangos DelValle",
-        "description": "Manguitos reci\u00e9n mochados del \u00e1rbol",
-        "price": "6000.00",
-        "slug": "mangos-delvalle",
-        "image": "products/mangos_ICb0B5R.jpg",
-        "created_at": "2022-02-23T23:55:58.156Z"
-    }
-}
 ]
