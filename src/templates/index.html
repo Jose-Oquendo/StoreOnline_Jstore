@@ -5,6 +5,20 @@
 {% endblock title %}
 {% block content %}
     <div class="col">
+        {% if messages %}
+                {% for messages in messages %}
+                    {% if message.tags == 'success' %}
+                        <div class="alert alert-success" id="alert">
+                            {{messages}}
+                        </div>
+                    {% else %}
+                        <div class="alert alert-succes" id="alert">
+                            <button type="button" class="close" data-dismiss="alert"> X </button>
+                            {{messages}}
+                        </div>
+                    {% endif %}
+                {% endfor %}
+        {% endif %}
         <h4 class="text-center">{{message}}</h4>
         {% include 'snipped/s_search.html'%}
         <div class="row">

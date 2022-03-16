@@ -1,8 +1,33 @@
 {% extends 'base/base.html' %}}
 {% load static %}
 {% block title %}
-    Orders
+    Orden
 {% endblock title %}
 {% block content %}
-    <h2>Orden de compra</h2>
+    <div class="col-8">
+        <div class="h3">
+            Revisa Tu Pedido :)
+        </div>
+        <div class="card">
+            <div class="card-body">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th scope="col"></th>
+                            <th scope="col">Nombre</th>
+                            <th scope="col">Precio</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for product in cart.products.all %}
+                            {% include 'snippets/products.html' %}
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <div class="col">
+        {% include 'snippets/resume.html'%}
+    </div>
 {% endblock content %}
