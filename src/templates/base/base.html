@@ -2,6 +2,7 @@
 {% load bootstrap4 %}
 {% bootstrap_css %}
 {% bootstrap_javascript jquery='full' %}
+{% url 'main' as main %}
 
 <!DOCTYPE html>
 <html lang="en">
@@ -29,6 +30,10 @@
             {% endblock content %}
         </div>
     </main>
+    <footer>
+        <a href="{{main}}"><img class="logo" src="{% static 'img/logo.png' %}">Alnus</a>
+        <p>Tu mejor decición</p>
+    </footer>
     <script src="{% static 'js/main.js' %}" crossorigin="anonymous"></script>
     <!--<script src="https://kit.fontawesome.com/ed5652a487.js" crossorigin="anonymous"></script>-->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/js/all.min.js" integrity="sha512-yFjZbTYRCJodnuyGlsKamNE/LlEaEAxSUDe5+u61mV8zzqJVFOH7TnULE2/PP/l5vKWpUNnF4VGVkXh3MjgLsg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
