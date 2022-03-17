@@ -35,6 +35,13 @@ class Order(models.Model):
     def get_total(self):
         return self.cart.total + self.shipping_total
 
+    def update_total(self):
+        self.total = self.get_total()
+        self.save()
+    
+    def get_total(self):
+        return self.cart.total + self.shipping_total
+
 def set_order_id(sender, instance, *args, **kwargs):
     if not instance.order_id:
         instance.order_id = str(uuid.uuid4())

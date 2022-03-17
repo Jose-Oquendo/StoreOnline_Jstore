@@ -2,7 +2,7 @@ from sre_constants import SUCCESS
 from django.contrib.auth import authenticate, login, logout
 from django.contrib import messages
 #from django.contrib.auth.models import User
-from django.http import HttpResponse
+from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import redirect, render
 
 from users.models import User
@@ -33,6 +33,8 @@ def login_view(request):
         if user:
             login(request, user)
             messages.success(request, 'Bienvenido {}'.format(user.username))
+            if request.GET.get('next'):
+                return HttpResponseRedirect(request.GET('next'))
             return redirect('products:index') #se redirecciona al name en las urls
         else:
             messages.error(request, 'Usuario o contraseña No validos')

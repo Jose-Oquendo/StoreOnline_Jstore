@@ -12,11 +12,9 @@
         <span class="navbar-toggler-icon"></span>
     </button>
     <div id="navb" class="navbar-collapse hide">
-        {% if user.is_authenticated %}
         <ul class="navbar-nav carrito">
             <li class="nav-item {% if request.path == cart %}activate{% endif %}"><a class="nav-link" href="{{cart}}">Mi carrito <i class="fas fa-cart-shopping"></i></a></li>
         </ul>
-        {% endif %}
         <ul class="nav navbar-nav ml-auto">
                 <li class="navbar-item"><a class="nav-link {% if request.path == main%}activate{% endif%}" href="{{main}}">Inicio</a></li>
                 <li class="navbar-item"><a class="nav-link {% if request.path == logout%}activate{% endif%}" href="{% url 'products:index' %}">productos</a></li>
@@ -36,8 +34,16 @@
                 </li>
 
             {% else %}
-                <li class="navbar-item"><a class="nav-link {% if request.path == login %}activate{% endif%}" href="{{login}}">Ingresar <i class="fas fa-right-to-bracket"></i></a></li>
-                <li class="navbar-item"><a class="nav-link {% if request.path == register %}activate{% endif%}" href="{{register}}">Registrarse <i class="fas fa-right-to-bracket"></i></a></li>
+                <li class="navbar-item">
+                    <button type="button" class="btn dropdown-toggle" data-toggle="dropdown">
+                        <i id='user' class="far fa-circle-user"></i>
+                    </button>
+                    <div class="dropdown-menu">
+                        <p class="nameUser">Desconectado</p>
+                        <a class="dropdown-item {% if request.path == login %}activate{% endif%}" href="{{login}}">Ingresar <i class="fas fa-right-to-bracket"></i></a>
+                        <a class="dropdown-item {% if request.path == register %}activate{% endif%}" href="{{register}}">Registrarse <i class="fas fa-right-to-bracket"></i></a>
+                    </div>
+                </li>
             {% endif %}
         </ul>
     </div>
