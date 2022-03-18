@@ -1,11 +1,20 @@
 from asyncio import AbstractServer
 from django.db import models
 from django.contrib.auth.models import User, AbstractUser
+
+from shipping_address.views import default
 # Create your models here.
 
 class User(AbstractUser):
     def get_full_name(self):
         return '{} {}'.format(self.first_name, self.last_name)
+
+    @property
+    def shipping_address(self):
+        return self.shipping_address_set.filter(default=True).first()
+
+    def has_shipping_address(self):
+        return self.shipping_address is not None 
 
 class Customer(User):
     class Meta:
