@@ -3,6 +3,7 @@
 {% url 'main' as main %}
 {% url 'logout' as logout %}
 {% url 'carts:carts' as cart %}
+{% url 'shipping_address:shipping_address' as shipping_address %}
 
 {% load static %}
 
@@ -14,6 +15,9 @@
     <div id="navb" class="navbar-collapse hide">
         <ul class="navbar-nav carrito">
             <li class="nav-item {% if request.path == cart %}activate{% endif %}"><a class="nav-link" href="{{cart}}">Mi carrito <i class="fas fa-cart-shopping"></i></a></li>
+            {% if user.is_authenticated %}
+                <li class="nav-item {% if request.path == cart %}activate{% endif %}"><a class="nav-link" href="{{shipping_address}}">Mis Direcciones <i class="fas fa-location-dot"></i></a></li>
+            {% endif %}
         </ul>
         <ul class="nav navbar-nav ml-auto">
                 <li class="navbar-item"><a class="nav-link {% if request.path == main%}activate{% endif%}" href="{{main}}">Inicio</a></li>

@@ -27,6 +27,20 @@
     <main class="container">
         {% block breadcrumb %}
         {% endblock breadcrumb %}
+        {% if messages %}
+                {% for messages in messages %}
+                    {% if message.tags == 'success' %}
+                        <div class="alert alert-success" id="alert">
+                            {{messages}}
+                        </div>
+                    {% else %}
+                        <div class="alert alert-succes" id="alert">
+                            <button type="button" class="close" data-dismiss="alert"> X </button>
+                            {{messages}}
+                        </div>
+                    {% endif %}
+                {% endfor %}
+        {% endif %}
         <div class="row mt-3">
             {% block content %}
             {% endblock content %}
@@ -35,6 +49,8 @@
     <footer>
         <a href="{{main}}"><img class="logo" src="{% static 'img/logo.png' %}">Alnus</a>
         <p>Tu mejor decición</p>
+        <br>
+        <p class="creditos">Juan Jose Oquendo Medina - Tecnologo ADSI 2237520</p>
     </footer>
     <script src="{% static 'js/main.js' %}" crossorigin="anonymous"></script>
     <!--<script src="https://kit.fontawesome.com/ed5652a487.js" crossorigin="anonymous"></script>-->

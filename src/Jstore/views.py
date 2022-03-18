@@ -34,7 +34,7 @@ def login_view(request):
             login(request, user)
             messages.success(request, 'Bienvenido {}'.format(user.username))
             if request.GET.get('next'):
-                return HttpResponseRedirect(request.GET('next'))
+                return HttpResponseRedirect(request.GET['next'])
             return redirect('products:index') #se redirecciona al name en las urls
         else:
             messages.error(request, 'Usuario o contraseña No validos')

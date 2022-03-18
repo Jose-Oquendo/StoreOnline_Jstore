@@ -1,3 +1,5 @@
+/*Aqui se encuentran los estilos para productos, carrito y el proceso de compra*/
+
 .card-title{
     height: 40px;
 }
@@ -25,4 +27,13 @@
 }
 .breadcrumb ol li a{
     color: inherit;
+}
+
+/*shipping*/
+.address{
+    padding: 5%;
+    background-color: rgba(117, 117, 121, 0.486);
+}
+.address input{
+    width: 60%;
 }

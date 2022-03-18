@@ -1,0 +1,21 @@
+{% url 'shipping_address:shipping_address' as shipping_address %}
+<form method="POST" class="address">{% csrf_token %}
+    {% for field in form %}
+        <div class="form-group" id="field_registro">
+            {{field.label_tag}}
+            {{field}}
+            {% if field.errors %}
+                <div class="alert alert-succes" id="alert">
+                    <button type="button" class="close" data-dismiss="alert"> X </button>
+                    {{field.errors}}
+                </div>
+            {% endif %}
+        </div>
+    {% endfor %}
+    <div class="bnt_registro">
+        <button class="btn btn-primary" type="submit">{{message}}</button>
+    </div>
+</form>
+<div class="mt-3">
+    <button class="btn" ><a href="{{shipping_address}}"><i class="fas fa-arrow-left"></i> Volver</a></button>
+</div>
