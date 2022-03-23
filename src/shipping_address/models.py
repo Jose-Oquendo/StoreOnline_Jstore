@@ -24,7 +24,9 @@ class ShippingAddress(models.Model):
         self.default = default
         self.save()
 
+    @property
     def address(self):
         return '{} - {} - {}'.format(self.city, self.state, self.country)
+     
 
 
