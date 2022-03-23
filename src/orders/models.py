@@ -9,6 +9,8 @@ from enum import Enum
 
 from numpy import subtract
 from carts.models import Cart
+import shipping_address
+from shipping_address.models import ShippingAddress
 from users.models import User
 
 class OrderStatus(Enum):
@@ -28,6 +30,7 @@ class Order(models.Model):
     shipping_total = models.DecimalField(default=3000, max_digits=8, decimal_places=2)
     total = models.DecimalField(default=0, max_digits=8, decimal_places=2)
     created_at = models.DateField(auto_now_add = True)
+    shipping_address = models.ForeignKey(ShippingAddress, null=True, blank=True, on_delete=models.CASCADE)
 
     def __str__(self):   
         return self.order_id
@@ -35,8 +38,20 @@ class Order(models.Model):
     def get_total(self):
         return self.cart.total + self.shipping_total
 
+    def get_or_set_shipping_address(self):
+        if self.shipping_address:
+            return self.shipping_address
+        shipping_address = self.user.shipping_address
+        if shipping_address:
+            self.update_shipping_address(shipping_address)
+        return shipping_address
+
     def update_total(self):
         self.total = self.get_total()
+        self.save()
+
+    def update_shipping_address(self, shipping_address):
+        self.shipping_address = shipping_address
         self.save()
     
     def get_total(self):

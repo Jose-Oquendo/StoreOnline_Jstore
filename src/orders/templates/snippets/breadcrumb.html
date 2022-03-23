@@ -5,7 +5,7 @@
                 {% if item.activate %}
                     <a class="breadcrumb-item" href="{{item.url}}">{{item.title}}</a>
                 {% else %}
-                    <span class="breadcrumb-item activate">{{item.tittle}}</span>
+                    <a class="breadcrumb-item activate" style="text-decoration:none; color:grey">{{item.title}}</a>
                 {% endif %}
             {% endfor %}
         </ol>
