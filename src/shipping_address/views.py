@@ -10,6 +10,7 @@ from django.contrib import messages
 from django.contrib.messages.views import SuccessMessageMixin
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin
+
 #from django.http import HttpResponseRedirect
 
 # Create your views here.
@@ -92,6 +93,8 @@ class ShippingAddressDeleteView(LoginRequiredMixin, generic.DeleteView):
             return redirect('shipping_address:shipping_address')
         if request.user.id != self.get_object().user_id:
             return redirect('carts:cart')
+        if self.get_object().has_orders():
+            return redirect('shipping_address:shipping_address')
         return super(ShippingAddressDeleteView, self).dispatch(request, *args, **kwargs)
 
     #defino el query set
