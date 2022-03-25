@@ -11,10 +11,12 @@ https://docs.djangoproject.com/en/2.2/ref/settings/
 """
 
 import os
+#mis importaciones
+from decouple import config #conexion a variables de entorno
+
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/2.2/howto/deployment/checklist/
@@ -26,7 +28,6 @@ SECRET_KEY = '22bc_%%$xu%rp48s+ftj#!o&d_$dn)!tb_hcsx!3nsi#*3zhwk'
 DEBUG = True
 
 ALLOWED_HOSTS = []
-
 
 # Application definition
 
@@ -90,11 +91,11 @@ WSGI_APPLICATION = 'Jstore.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'StoreOnline',
-        'USER': 'postgres',
-        'PASSWORD': '12345', #1087
-        'HOST': 'localhost',
-        'PORT': '5432',
+        'NAME': config('DB_DATABASE'),
+        'USER': config('DB_USERNAME'),
+        'PASSWORD': config('DB_PASSWORD'),
+        'HOST': config('DB_HOST'),
+        'PORT': config('DB_PORT'),
     }
 }
 
@@ -137,6 +138,8 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
+#variables de entorno para este proyecto
+
 STATICFILES_DIRS = [
     BASE_DIR , "static",
     '../src/static/',
@@ -147,3 +150,10 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 #autofield
 DEFAULT_AUTO_FIELD='django.db.models.AutoField'
+
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_HOST_USER = 'oscarpruebadjango.gmail.com' 
+EMAIL_HOST_PASSWORD = config('USER_MAIL_PASSWORD')#env
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True

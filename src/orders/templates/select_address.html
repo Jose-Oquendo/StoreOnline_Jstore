@@ -16,10 +16,10 @@
                                 {{shipping_address.address}}
                             </h5>
                             <p class="card-tittle">{{shipping_address.postal_code}}</p>
-                            <a href="{% url 'orders:check_address' shipping_address.pk %}" class="btn btn-warning">Seleccionar direccion</a>
                         </div>
                     </div>
                 </div>
+                <a href="{% url 'orders:check_address' shipping_address.pk %}" class="btn btn-warning">Seleccionar direccion</a>
             {% endfor %}
         </div> 
     </div>

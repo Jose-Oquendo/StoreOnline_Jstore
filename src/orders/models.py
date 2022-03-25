@@ -57,6 +57,14 @@ class Order(models.Model):
     def get_total(self):
         return self.cart.total + self.shipping_total
 
+    def cancel(self):
+        self.status = OrderStatus.CANCELED
+        self.save()
+
+    def complete(self):
+        self.status = OrderStatus.COMPLETED
+        self.save()
+
 def set_order_id(sender, instance, *args, **kwargs):
     if not instance.order_id:
         instance.order_id = str(uuid.uuid4())
