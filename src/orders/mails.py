@@ -8,9 +8,10 @@ class Mail:
     @staticmethod
     def send_complete_order(order, user):
         subject = 'Tú pedido ha sido enviado'
-        template = get_template('orders/mails/complete.html')
+        template = get_template('mails/complete.html')
         content = template.render({
             'user' : user,
+            'order': order,
         })
 
         message = EmailMultiAlternatives(

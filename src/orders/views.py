@@ -11,6 +11,7 @@ from orders.utils import breadcrumb
 from orders.utils import get_or_create_order
 from orders.utils import destroy_order
 from shipping_address.models import ShippingAddress
+from orders.mails import Mail
 
 def get_cart_order(request):
     cart = get_or_create_cart(request)
@@ -97,6 +98,8 @@ def complete(request):
 
     if request.user.id != order.user_id:
         return redirect('carts:cart')
+
+    Mail.send_complete_order(order, request.user)
 
     order.complete()
     destroy_order(request)
