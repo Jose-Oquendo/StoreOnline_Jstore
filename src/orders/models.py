@@ -1,15 +1,16 @@
-from distutils.util import subst_vars
-from tkinter import CASCADE
+import uuid
+import decimal
 from django.db import models
 from django.db.models.signals import pre_save
-import uuid
 
 # Create your models here.
 from carts.models import Cart
-from shipping_address.models import ShippingAddress
-from users.models import User
 from orders.common import OrderStatus
 from orders.common import choices
+from promo_code.models import PromoCode
+from shipping_address.models import ShippingAddress
+from users.models import User
+
 
 class Order(models.Model):
     order_id = models.CharField(max_length=100, null=False, unique=True)
@@ -20,9 +21,17 @@ class Order(models.Model):
     total = models.DecimalField(default=0, max_digits=8, decimal_places=2)
     created_at = models.DateField(auto_now_add = True)
     shipping_address = models.ForeignKey(ShippingAddress, null=True, blank=True, on_delete=models.CASCADE)
+    promo_code = models.OneToOneField(PromoCode, null=True, blank=True, on_delete=models.CASCADE)
 
     def __str__(self):   
         return self.order_id
+
+    def apply_promo_code(self, promo_code):
+        if self.promo_code is None:
+            self.promo_code = promo_code
+            self.save()
+            self.update_total()
+            promo_code.use()
     
     def get_total(self):
         return self.cart.total + self.shipping_total
@@ -42,6 +51,11 @@ class Order(models.Model):
     def update_shipping_address(self, shipping_address):
         self.shipping_address = shipping_address
         self.save()
+
+    def get_discount(self):
+        if self.promo_code:
+            return self.promo_code.discount
+        return 0
     
     def get_total(self):
         return self.cart.total + self.shipping_total

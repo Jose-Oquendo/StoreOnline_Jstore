@@ -38,8 +38,8 @@
                         <div class="font-weight-bold">
                             Codigo Promocional
                         </div>
-                        <form class="mt-5">
-                            <input type="text" name="code" value="" class="form-control" placeholder="Código promocional">
+                        <form class="mt-5" action="{% url 'promo_code:validate' %}">
+                            <input type="text" id="promocode-form" name="code" value="" class="form-control" placeholder="Código promocional">
                         </form>
                     </div>
                 </div><!--cierre row-->
@@ -75,3 +75,20 @@
         </div>
     </div>
 {% endblock content %}
+
+{% block javascript %}
+<script type="text/javascript">
+    const form = document.getElementById('promocode-form') 
+    form.addEventListener('submit', function(e){
+        e.preventDefault()
+        const input = this.code;
+        const code = input.value;
+        const url = this.action + "?code="+code;
+        fetch(url)
+            .then(response => response.json())
+            .then(response => {
+                console.log(response.name)
+            });
+    })
+</script>
+{% endblock %}
