@@ -5,22 +5,11 @@ from django.db.models.signals import pre_save
 import uuid
 
 # Create your models here.
-from enum import Enum
-
-from numpy import subtract
 from carts.models import Cart
-import shipping_address
 from shipping_address.models import ShippingAddress
 from users.models import User
-
-class OrderStatus(Enum):
-    '''para limitar las opciones que el atributo status puede almacenar'''
-    CREATED = 'CREATED'
-    PAYED = 'PAYED'
-    COMPLETED = 'COMPLETED'
-    CANCELED = 'CANCELED'
-
-choices = [(tag, tag.value) for tag in OrderStatus]
+from orders.common import OrderStatus
+from orders.common import choices
 
 class Order(models.Model):
     order_id = models.CharField(max_length=100, null=False, unique=True)

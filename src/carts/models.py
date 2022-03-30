@@ -7,6 +7,7 @@ from django.db.models.signals import post_save
 
 from users.models import User
 from products.models import Product
+from orders.common import OrderStatus
 
 
 class Cart(models.Model):
@@ -43,7 +44,7 @@ class Cart(models.Model):
 
     @property
     def order(self):
-        return self.order_set.first()
+        return self.order_set.filter(status=OrderStatus.CREATED).first()
 
 class CartProductManager(models.Manager):
     

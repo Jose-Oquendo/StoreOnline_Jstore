@@ -18,7 +18,7 @@ def breadcrumb(products = False, address=False, payment=False, confirmation=Fals
         {'title':'Productos', 'activate': products, 'url':reverse('orders:order')},
         {'title':'Dirección', 'activate': address, 'url':reverse('orders:address')},#('orders:address')
         {'title':'Pago', 'activate': payment, 'url':reverse('orders:order')},
-        {'title':'Confirmacón', 'activate': confirmation, 'url':reverse('orders:order')},
+        {'title':'Confirmacón', 'activate': confirmation, 'url':reverse('orders:confirm')},
     )
 
 def destroy_order(request):

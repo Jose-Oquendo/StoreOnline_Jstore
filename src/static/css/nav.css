@@ -32,10 +32,10 @@ nav li i{
 }
 
 .dropdown-menu{
-    width: 30px;
+    width: auto;
     font-size: 18px;
     position: absolute;
-    left: 88%;
+    left: 85%;
     background-color: rgba(117, 117, 121, 0.87);
 }
 

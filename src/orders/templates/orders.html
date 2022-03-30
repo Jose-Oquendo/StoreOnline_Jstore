@@ -1,0 +1,17 @@
+{% extends 'base/base.html' %}}
+{% load static %}
+{% block title %}
+    Ordenes
+{% endblock title %}
+{% block content %}
+    <div class="col">
+        <div class="h3">
+            Tus pedidos
+        </div>
+        <div class="">
+        {% for order in object_list %}
+            {% include 'snippets/order.html' %}
+        {% endfor %}
+        </div>
+    </div>
+{% endblock content %}
