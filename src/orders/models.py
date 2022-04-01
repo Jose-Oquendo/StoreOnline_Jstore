@@ -58,7 +58,7 @@ class Order(models.Model):
         return 0
     
     def get_total(self):
-        return self.cart.total + self.shipping_total
+        return self.cart.total + self.shipping_total - decimal.Decimal(self.get_discount())
 
     def cancel(self):
         self.status = OrderStatus.CANCELED

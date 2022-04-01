@@ -12,12 +12,8 @@
             <div class="card-body">
                 <div class="row">
                     <div class="col-4">
-                        <div class="font-weight-bold">
-                            Direccion de envio
-                        </div>
-                        <div class="card-text">
-                            {{shipping_address.address}}
-                        </div>
+                        <div class="font-weight-bold">Direccion de envio </div>
+                        <div class="card-text">{{shipping_address.address}}</div>
                         <div class="card-text">
                             <p>{{shipping_address.line1}}</p>
                             <p>{{shipping_address.reference}}</p>
@@ -26,21 +22,18 @@
                     </div>
 
                     <div class="col-4">
-                        <div class="font-weight-bold">
-                            Método de pago
-                        </div>
-                        <div class="card-text">
-                            Targeta Terminacion 4242
-                        </div>
+                        <div class="font-weight-bold">Método de pago</div>
+                        <div class="card-text">Targeta Terminacion 4242</div>
                     </div>
 
                     <div class="col-4">
-                        <div class="font-weight-bold">
-                            Codigo Promocional
-                        </div>
+                        <div class="font-weight-bold">Codigo Promocional</div>
                         <form class="mt-5" action="{% url 'promo_code:validate' %}">
-                            <input type="text" id="promocode-form" name="code" value="" class="form-control" placeholder="Código promocional">
+                            <input class="form-control" type="text" id="promocode-form" name="code" value="{{ order.promo_code.code }}" {% if order.promo_code %} readonly {% endif %} placeholder="Código promocional" >
                         </form>
+                        {% if order.promo_code %}
+                            <div class="text-succes" id="promocode-success" style="font-size:1em;"></div>
+                        {% endif %}
                     </div>
                 </div><!--cierre row-->
             </div><!--cierre card-body-->
@@ -84,9 +77,23 @@
         const input = this.code;
         const code = input.value;
         const url = this.action + "?code="+code;
+        const div_total = document.getElementById('order-total');
+        const div_success = docuemnt.document.getElementById('promocode-success')
+        console.log(url)
         fetch(url)
             .then(response => response.json())
             .then(response => {
+                if(response.status === True){
+                    div_total.innerHTML = "$" + response.total
+                    div_success.classList.remove('text-danger')
+                    div_success.classList.add('text-success')
+                    div_success.innerHTML = 'Codigo aplicado exitosamente'
+                    input.readOnly = True
+                }else{
+                    div_success.innerHTML = 'Codigo no valido'
+                    div_success.classList.remove('text-success')
+                    div_success.classList.add('text-danger')
+                }
                 console.log(response.name)
             });
     })

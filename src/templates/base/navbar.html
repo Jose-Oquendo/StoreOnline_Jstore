@@ -5,6 +5,7 @@
 {% url 'carts:carts' as cart %}
 {% url 'shipping_address:shipping_address' as shipping_address %}
 {% url 'orders:completed' as completed %}
+{% url 'billing_profiles:create' as billing_profiles %}
 
 {% load static %}
 
@@ -32,11 +33,10 @@
                     <div class="dropdown-menu">
                         <p class="nameUser">{{user.username}}</p>
                         <hr>
-                        <a class="dropdown-item" href="{{shipping_address}}">Mis Direcciones <i class="fas fa-location-dot"></i></a>
-                        <a class="dropdown-item {% if request.path == completed%}activate{% endif%}" href="{{completed}}">Mis pedidos
-                            <i class="fas fa-shipping-fast"></i>
-                        </a>
-                        <a class="dropdown-item {% if request.path == logout%}activate{% endif%}" href="{{logout}}">Salir <i class="fas fa-right-to-bracket"></i></a>
+                        <a class="dropdown-item" href="{{shipping_address}}"><i class="fas fa-location-dot"></i> Mis Direcciones</a>
+                        <a class="dropdown-item {% if request.path == completed%}activate{% endif%}" href="{{completed}}"><i class="fas fa-shipping-fast"></i> Mis pedidos</a>
+                        <a class="dropdown-item" href="{{billing_profiles}}"><i class="fa-brands fa-cc-stripe"></i> Metodo de pago</a>
+                        <a class="dropdown-item {% if request.path == logout%}activate{% endif%}" href="{{logout}}"><i class="fas fa-right-to-bracket"></i> Salir</a>
                     </div>
                 </li>
 
@@ -48,8 +48,8 @@
                     <div class="dropdown-menu">
                         <p class="nameUser">Desconectado</p>
                         <hr>
-                        <a class="dropdown-item {% if request.path == login %}activate{% endif%}" href="{{login}}">Ingresar <i class="fas fa-right-to-bracket"></i></a>
-                        <a class="dropdown-item {% if request.path == register %}activate{% endif%}" href="{{register}}">Registrarse <i class="fas fa-right-to-bracket"></i></a>
+                        <a class="dropdown-item {% if request.path == login %}activate{% endif%}" href="{{login}}"><i class="fas fa-right-to-bracket"></i> Ingresar</a>
+                        <a class="dropdown-item {% if request.path == register %}activate{% endif%}" href="{{register}}"><i class="fas fa-right-to-bracket"></i> Registrarse</a>
                     </div>
                 </li>
             {% endif %}

@@ -1,9 +1,17 @@
-import string
 import random
+import string
+from time import time
 from django.db import models
 from django.db.models.signals import pre_save
+from django.utils import timezone
 
 # Create your models here.
+
+class PromoCodeManager(models.Manager):
+
+    def get_valid(self,code):
+        now = timezone.now()
+        return self.filter(code=code).filter(used = False).filter(valid_from__lter=now).filter(valid_to__gte=now).first
 
 class PromoCode(models.Model):
     code = models.CharField(max_length=50, unique=True)
@@ -12,6 +20,8 @@ class PromoCode(models.Model):
     valid_to = models.DateTimeField()
     used = models.BooleanField(default=False)
     created_at = models.DateTimeField(auto_now_add=True)
+
+    objects = PromoCodeManager()
 
     def __str__(self):
         return self.code
