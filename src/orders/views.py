@@ -4,7 +4,7 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth.decorators import login_required
 from django.db.models.query import EmptyQuerySet
 from django.shortcuts import get_object_or_404, redirect, render
-from django.views import generic
+from django.views import View, generic
 import threading
 
 # Create your views here.
@@ -71,7 +71,16 @@ def confirm(request, cart, order):
         'cart': cart,
         'order': order,
         'shipping_address': shipping_address,
-        'breadcrumb': breadcrumb(products=True, address=True, confirmation=True),
+        'breadcrumb': breadcrumb(products=True, address=True, payment=True, confirmation=True),
+    })
+
+@login_required(login_url='login')
+@validate_cart_and_order
+def to_pay(request, cart, order):
+    return render(request, 'payment.html', {
+        'cart': cart,
+        'order': order,
+        'breadcrumb': breadcrumb(products=True, address=True, payment=True),
     })
 
 @login_required(login_url='login')
