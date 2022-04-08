@@ -7,7 +7,8 @@
     {% include 'snippets/breadcrumb.html' %}
 {% endblock breadcrumb %}
 {% block content %}
-<style type="text/css">
+<script src="https://js.stripe.com/v3/"></script>
+<style>
 /* Variables */
 * {
   box-sizing: border-box;
@@ -17,6 +18,7 @@ body {
   font-family: -apple-system, BlinkMacSystemFont, sans-serif;
   font-size: 16px;
   -webkit-font-smoothing: antialiased;
+  display: flex;
   justify-content: center;
   align-content: center;
   height: 100vh;
@@ -150,9 +152,23 @@ button:disabled {
   }
 }
 </style>
-<script src="https://js.stripe.com/v3/"></script>
-<script defer>
-          // This is your test publishable API key.
+<div class="col">
+    <div class="h3">
+        Metodo de pago
+    </div>
+    <form id="payment-form">
+        <div id="payment-element">
+          <!--Stripe.js injects the Payment Element-->
+        </div>
+        <button id="submit">
+          <div class="spinner hidden" id="spinner"></div>
+          <span id="button-text">Pay now</span>
+        </button>
+        <div id="payment-message" class="hidden"></div>
+      </form>
+</div>
+<script>
+// This is your test publishable API key.
 const stripe = Stripe("pk_test_51KlhztBuzzMebWRRbScFf3q6e8BCRsHJMtmPYvaxoLgY7v0FXcSwiIgp5VT3qVHvCZ0VfW8lpAfbsMornwcKpFUu00e8EATunX");
 
 // The items the customer wants to buy
@@ -267,19 +283,4 @@ function setLoading(isLoading) {
   }
 }
 </script>
-<!-- Display a payment form -->
-<form id="payment-form">
-    <div id="payment-element">
-        <!--Stripe.js injects the Payment Element-->
-    </div>
-        <button id="submit">
-    <div class="spinner hidden" id="spinner">
-
-    </div>
-        <span id="button-text">Pay now</span>
-        </button>
-    <div id="payment-message" class="hidden">
-
-    </div>
-</form>
 {% endblock content %}

@@ -17,6 +17,9 @@ from orders.utils import breadcrumb
 from orders.utils import get_or_create_order
 from orders.utils import destroy_order
 from shipping_address.models import ShippingAddress
+#stripe
+import stripe
+stripe.api_key = 'sk_test_51KlhztBuzzMebWRRYgr92hDs3NbBvYnn49oT5Mj88okft3kCI63DHbNVfVxQxc55odGTA45caW3uoOXmgAe7liGg00icTYo7SU'
 
 @login_required(login_url='login')
 @validate_cart_and_order
