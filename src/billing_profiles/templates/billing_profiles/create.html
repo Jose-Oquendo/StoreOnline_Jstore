@@ -1,11 +1,34 @@
 {% extends 'base/base.html' %}
+{% block css %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/stripe_styles.css' %}">
+{% endblock css %}
 {% block content %}
     <div class="row">
         <div class="col">
             <div class="h3">
                 Nuevo Metodo
             </div>
+            <div class="">
+                 <!-- Display a payment form -->
+                <form id="payment-form" method="post" action="{% url 'billing_profile:create' %}">
+                    {% csrf_token %}
+                    <div id="payment-element" class="form-control">
+                    <!--Stripe.js injects the Payment Element-->
+                    </div>
+                    <button id="submit" class="btn btn-success">
+                        <div class="spinner hidden" id="spinner"></div>
+                        <span id="button-text">Pay now</span>
+                    </button>
+                    <p id="card-error" role="alert"></p>
+                    <p class="result-message hidden">
+                        Pago realizado
+                    </p>
+                </form>
+            </div>
         </div>
-    </div>
-{% endblock content%}  
+    </di>
+{% endblock content%} 
+{% block javascript %}
+    <script src="{% static 'js/stripe.js' %}"></script>
+{% endblock %}
 

@@ -79,15 +79,6 @@ def confirm(request, cart, order):
 
 @login_required(login_url='login')
 @validate_cart_and_order
-def to_pay(request, cart, order):
-    return render(request, 'payment.html', {
-        'cart': cart,
-        'order': order,
-        'breadcrumb': breadcrumb(products=True, address=True, payment=True),
-    })
-
-@login_required(login_url='login')
-@validate_cart_and_order
 def cancel(request, cart, order):
     if request.user.id != order.user_id:
         return redirect('carts:cart')
@@ -125,3 +116,21 @@ class OrderListView(LoginRequiredMixin, generic.ListView):
     def get_queryset(self):
         return self.request.user.orders_completed()
 
+@login_required(login_url='login')
+@validate_cart_and_order
+def to_pay(request, cart, order):
+    return render(request, 'payment.html', {
+        'cart': cart,
+        'order': order,
+        'breadcrumb': breadcrumb(products=True, address=True, payment=True),
+    })
+
+@login_required(login_url='login')
+@validate_cart_and_order
+def charge(request, cart, order):
+   return render(request, 'payment.html', {
+        'cart': cart,
+        'order': order,
+        'breadcrumb': breadcrumb(products=True, address=True, payment=True),
+        'message': "Pago realizado",
+    })
